@@ -15,14 +15,14 @@ jobs:
     - name: Login Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    -name: Build backend
+    - name: Build backend
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/backend-app ./backend
 
-    -name: Push backend
+    - name: Push backend
       run: docker push ${{ secrets.DOCKER_USERNAME }}/backend-app
 
-    -name: Build frontend
+    - name: Build frontend
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend-app ./frontend
 
-    -name: Push frontend
+    - name: Push frontend
       run: docker push ${{ secrets.DOCKER_USERNAME }}/frontend-app
